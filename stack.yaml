@@ -1,0 +1,48 @@
+# For more information, see: https://github.com/commercialhaskell/stack/blob/master/doc/yaml_configuration.md
+
+# Specifies the GHC version and set of packages available (e.g., lts-3.5, nightly-2015-09-21, ghc-7.10.2)
+resolver: lts-5.12
+compiler: ghcjs-0.2.0.20160414_ghc-7.10.3
+compiler-check: match-exact
+setup-info:
+  ghcjs:
+    source:
+      ghcjs-0.2.0.20160414_ghc-7.10.3:
+        url: https://s3.amazonaws.com/ghcjs/ghcjs-0.2.0.20160414_ghc-7.10.3.tar.gz
+        sha1: 6d6f307503be9e94e0c96ef1308c7cf224d06be3        
+
+# Local packages, usually specified by relative directory name
+packages:
+- '.'
+- location:
+    git: "https://github.com/ekmett/recursion-schemes.git"
+    commit: 129df9bb5c5630781ba0c2dd6def698fce0f44df    
+
+# Packages to be pulled from upstream that are not in the resolver (e.g., acme-missiles-0.3)
+extra-deps:
+- reflex-dom-0.3
+- reflex-0.4.0
+- ghcjs-dom-0.2.4.0
+- ref-tf-0.4
+- haskell-src-exts-1.16.0.1  
+#- webkitgtk3-0.14.2.0
+#- webkitgtk3-javascriptcore-0.13.2.0
+#- syb-0.5.1
+
+# Override default flag values for local packages and extra-deps
+flags: {}
+
+# Control whether we use the GHC we find on the path
+# system-ghc: true
+
+# Require a specific version of stack, using version ranges
+# require-stack-version: -any # Default
+# require-stack-version: >= 0.1.4.0
+
+# Override the architecture used by stack, especially useful on Windows
+# arch: i386
+# arch: x86_64
+
+# Extra directories used by stack for building
+# extra-include-dirs: [/path/to/dir]
+# extra-lib-dirs: [/path/to/dir]
